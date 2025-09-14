@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DIEMO - Empowering Digital Futures</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome CDN -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet" />
+    <!-- Vue.js CDN -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
+    <!-- Google Fonts (Inter) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="app" class="min-h-screen bg-white">
+        <!-- Header Section -->
+        <header class="bg-white shadow-sm border-b border-gray-100">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between items-center h-16">
+                    <div class="flex items-center">
+                        <div class="flex-shrink-0 flex items-center">
+                            <div class="w-8 h-8 bg-red-500 rounded-full flex items-center justify-center mr-3">
+                                <span class="text-white font-bold text-sm">D</span>
+                            </div>
+                            <span class="text-xl font-bold text-gray-900">Company</span>
+                            <span class="text-xs text-gray-500 ml-2">Empowering Digital Futures</span>
+                        </div>
+                    </div>
+                    <nav class="hidden md:flex space-x-8" aria-label="Main navigation">
+                        <a href="#" class="text-red-500 font-medium hover:text-red-600 transition-colors">Home</a>
+                        <a href="#" class="text-gray-700 hover:text-red-500 transition-colors">About Us</a>
+                        <div class="relative group">
+                            <button class="text-gray-700 hover:text-red-500 transition-colors flex items-center"
+                                aria-haspopup="true" aria-expanded="false">
+                                Services
+                                <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                            </button>
+                            <!-- Dropdown menu can be added here if needed -->
+                        </div>
+                        <a href="#" class="text-gray-700 hover:text-red-500 transition-colors">Projects</a>
+                        <a href="#" class="text-gray-700 hover:text-red-500 transition-colors">Careers</a>
+                    </nav>
+                    <div class="flex items-center space-x-4">
+                        <div class="flex items-center space-x-2">
+                            <a href="#" class="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center"
+                                aria-label="WhatsApp">
+                                <i class="fab fa-whatsapp text-white text-sm"></i>
+                            </a>
+                            <a href="#" class="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center"
+                                aria-label="Phone">
+                                <i class="fas fa-phone text-white text-sm"></i>
+                            </a>
+                        </div>
+                        <button
+                            class="bg-red-500 hover:bg-red-600 text-white px-6 py-2 rounded-full font-medium transition-colors rounded-button whitespace-nowrap">
+                            Get in touch
+                        </button>
+                        <!-- Mobile menu button -->
+                        <button @click="toggleMobileMenu"
+                            class="md:hidden text-gray-700 hover:text-red-500 focus:outline-none"
+                            aria-label="Toggle menu">
+                            <i class="fas fa-bars text-xl"></i>
+                        </button>
+                    </div>
+                </div>
+                <!-- Mobile menu -->
+                <div v-if="showMobileMenu" class="md:hidden bg-white border-t border-gray-100">
+                    <nav class="flex flex-col space-y-4 p-4" aria-label="Mobile navigation">
+                        <a href="#" class="text-red-500 font-medium hover:text-red-600 transition-colors">Home</a>
+                        <a href="#" class="text-gray-700 hover:text-red-500 transition-colors">About Us</a>
+                        <a href="#" class="text-gray-700 hover:text-red-500 transition-colors">Services</a>
+                        <a href="#" class="text-gray-700 hover:text-red-500 transition-colors">Projects</a>
+                        <a href="#" class="text-gray-700 hover:text-red-500 transition-colors">Careers</a>
+                    </nav>
+                </div>
+            </div>
+        </header>
+
+        <!-- Hero Section -->
+        <section class="relative min-h-screen flex items-center overflow-hidden"
+            style="background-image: url('https://readdy.ai/api/search-image?query=Modern%20abstract%20geometric%20background%20with%20floating%20shapes%20circles%20triangles%20and%20lines%20in%20soft%20gradient%20colors%20of%20blue%20purple%20and%20white%20minimalist%20design%20with%20clean%20composition%20perfect%20for%20technology%20website%20hero%20section&width=1440&height=900&seq=hero001&orientation=landscape'); background-size: cover; background-position: center;">
+            <div class="absolute inset-0 bg-gradient-to-r from-white via-white/95 to-transparent"></div>
+            <!-- Floating Geometric Shapes -->
+            <div class="absolute top-20 right-20 w-16 h-16 opacity-20">
+                <div class="w-full h-full bg-red-500 rounded-full animate-pulse"></div>
+            </div>
+            <div class="absolute top-40 right-40 w-8 h-8 opacity-30">
+                <div class="w-full h-full bg-blue-500 transform rotate-45"></div>
+            </div>
+            <div class="absolute bottom-40 right-60 w-12 h-12 opacity-25">
+                <div class="w-full h-full border-2 border-red-500 rounded-full"></div>
+            </div>
+            <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <!-- Left Content -->
+                    <div class="space-y-8">
+                        <div class="space-y-6">
+                            <h1 class="text-5xl lg:text-6xl font-bold leading-tight">
+                                <span class="text-red-500">Start, Build & Grow</span><br />
+                                <span class="text-gray-900">your Business with</span><br />
+                                <span class="text-red-500">Modern Solutions</span>
+                            </h1>
+                            <div class="space-y-4 text-lg text-gray-600 leading-relaxed">
+                                <p>
+                                    Empowering Small Businesses: Build Stunning
+                                    <span class="text-red-500 font-semibold">Websites</span>,
+                                    Develop High-Performance
+                                    <span class="text-red-500 font-semibold">Mobile Apps</span>,
+                                    and Boost Growth with
+                                    <span class="text-red-500 font-semibold">Expert SEO</span> &
+                                    Digital Marketing Solutions.
+                                </p>
+                                <p>
+                                    <span class="text-red-500 font-semibold">Let's connect</span>
+                                    to discuss how our tailored digital solutions can benefit your venture.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="flex flex-col sm:flex-row gap-4">
+                            <button
+                                class="bg-red-500 hover:bg-red-600 text-white px-8 py-4 rounded-full font-medium text-lg transition-all duration-300 hover:shadow-lg hover:scale-105 rounded-button whitespace-nowrap">
+                                Let's Talk
+                            </button>
+                            <button
+                                class="bg-transparent border-2 border-red-500 text-red-500 hover:bg-red-500 hover:text-white px-8 py-4 rounded-full font-medium text-lg transition-all duration-300 rounded-button whitespace-nowrap">
+                                Request Demo
+                            </button>
+                        </div>
+                    </div>
+                    <!-- Right Visual -->
+                    <div class="relative flex justify-center lg:justify-end">
+                        <div class="relative">
+                            <!-- Main Device Mockup -->
+                            <div class="relative z-10 transform hover:scale-105 transition-transform duration-500">
+                                <img src="https://readdy.ai/api/search-image?query=Modern%20smartphone%20mockup%20displaying%20sleek%20mobile%20app%20interface%20with%20dark%20theme%20colorful%20UI%20elements%20floating%20in%203D%20space%20against%20clean%20minimal%20background%20professional%20product%20photography%20style&width=400&height=600&seq=phone001&orientation=portrait"
+                                    alt="Mobile App Interface"
+                                    class="w-80 h-auto object-cover object-top rounded-3xl shadow-2xl" />
+                            </div>
+                            <!-- Floating Elements -->
+                            <div
+                                class="absolute -top-8 -left-8 w-20 h-20 bg-gradient-to-br from-blue-400 to-purple-500 rounded-2xl opacity-80 animate-bounce">
+                            </div>
+                            <div
+                                class="absolute -bottom-4 -right-4 w-16 h-16 bg-gradient-to-br from-red-400 to-pink-500 rounded-full opacity-70 animate-pulse">
+                            </div>
+                            <div
+                                class="absolute top-1/2 -left-12 w-12 h-12 border-4 border-yellow-400 rounded-full opacity-60">
+                            </div>
+                            <!-- Abstract Geometric Shapes -->
+                            <div class="absolute -top-16 right-8">
+                                <div class="w-24 h-24 opacity-30">
+                                    <svg viewBox="0 0 100 100" class="w-full h-full text-red-500">
+                                        <polygon points="50,10 90,90 10,90" fill="currentColor" />
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section class="py-24 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl font-bold text-gray-900 mb-6">Our Digital Solutions</h2>
+                    <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                        Comprehensive digital services designed to transform your business and accelerate growth
+                    </p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Web Development -->
+                    <div
+                        class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 group">
+                        <div class="relative mb-6">
+                            <div
+                                class="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                                <i class="fas fa-code text-white text-2xl"></i>
+                            </div>
+                            <div class="absolute -top-2 -right-2 w-6 h-6 bg-red-500 rounded-full opacity-80"></div>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Website Development</h3>
+                        <p class="text-gray-600 mb-6">
+                            Create stunning, responsive websites that captivate your audience and drive conversions with
+                            modern design principles.
+                        </p>
+                        <button class="text-red-500 font-semibold hover:text-red-600 transition-colors">
+                            Learn More <i class="fas fa-arrow-right ml-2"></i>
+                        </button>
+                    </div>
+                    <!-- Mobile Apps -->
+                    <div
+                        class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 group">
+                        <div class="relative mb-6">
+                            <div
+                                class="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                                <i class="fas fa-mobile-alt text-white text-2xl"></i>
+                            </div>
+                            <div class="absolute -top-2 -right-2 w-6 h-6 bg-yellow-400 rounded-full opacity-80"></div>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Mobile Applications</h3>
+                        <p class="text-gray-600 mb-6">
+                            Develop high-performance mobile apps for iOS and Android that deliver exceptional user
+                            experiences and functionality.
+                        </p>
+                        <button class="text-red-500 font-semibold hover:text-red-600 transition-colors">
+                            Learn More <i class="fas fa-arrow-right ml-2"></i>
+                        </button>
+                    </div>
+                    <!-- SEO & Marketing -->
+                    <div
+                        class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 group">
+                        <div class="relative mb-6">
+                            <div
+                                class="w-16 h-16 bg-gradient-to-br from-green-500 to-green-600 rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                                <i class="fas fa-chart-line text-white text-2xl"></i>
+                            </div>
+                            <div class="absolute -top-2 -right-2 w-6 h-6 bg-blue-400 rounded-full opacity-80"></div>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">SEO & Digital Marketing</h3>
+                        <p class="text-gray-600 mb-6">
+                            Boost your online presence with expert SEO strategies and comprehensive digital marketing
+                            solutions that drive results.
+                        </p>
+                        <button class="text-red-500 font-semibold hover:text-red-600 transition-colors">
+                            Learn More <i class="fas fa-arrow-right ml-2"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Projects -->
+        <section class="py-24 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl font-bold text-gray-900 mb-6">Featured Projects</h2>
+                    <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                        Discover how we've helped businesses transform their digital presence
+                    </p>
+                </div>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <div class="space-y-8">
+                        <div class="space-y-6">
+                            <span class="text-red-500 text-sm font-semibold tracking-wider uppercase">Success
+                                Story</span>
+                            <h3 class="text-3xl lg:text-4xl font-bold text-gray-900">
+                                E-Commerce Platform Revolution
+                            </h3>
+                            <p class="text-gray-600 text-lg leading-relaxed">
+                                We transformed a traditional retail business into a thriving online marketplace,
+                                increasing their revenue by 300% within six months through strategic digital solutions
+                                and modern e-commerce functionality.
+                            </p>
+                        </div>
+                        <div class="grid grid-cols-2 gap-6">
+                            <div class="text-center p-6 bg-gray-50 rounded-xl">
+                                <div class="text-3xl font-bold text-red-500 mb-2">300%</div>
+                                <div class="text-gray-600">Revenue Increase</div>
+                            </div>
+                            <div class="text-center p-6 bg-gray-50 rounded-xl">
+                                <div class="text-3xl font-bold text-red-500 mb-2">6M</div>
+                                <div class="text-gray-600">Timeline</div>
+                            </div>
+                        </div>
+                        <button
+                            class="bg-red-500 hover:bg-red-600 text-white px-8 py-4 rounded-full font-medium transition-colors rounded-button whitespace-nowrap">
+                            View Case Study
+                        </button>
+                    </div>
+                    <div class="relative">
+                        <img src="https://readdy.ai/api/search-image?query=Modern%20e-commerce%20website%20interface%20displayed%20on%20laptop%20screen%20with%20clean%20product%20grid%20shopping%20cart%20and%20professional%20design%20elements%20photographed%20in%20bright%20office%20environment%20with%20soft%20lighting&width=600&height=400&seq=project001&orientation=landscape"
+                            alt="E-Commerce Platform"
+                            class="w-full h-auto object-cover object-top rounded-2xl shadow-2xl" />
+                        <div
+                            class="absolute -bottom-6 -left-6 w-24 h-24 bg-gradient-to-br from-red-400 to-pink-500 rounded-2xl opacity-80">
+                        </div>
+                        <div
+                            class="absolute -top-6 -right-6 w-16 h-16 bg-gradient-to-br from-blue-400 to-purple-500 rounded-full opacity-70">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials -->
+        <section class="py-24 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl font-bold text-gray-900 mb-6">What Our Clients Say</h2>
+                    <p class="text-xl text-gray-600 max-w-3xl mx-auto">Real feedback from businesses we've helped grow
+                    </p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow">
+                        <div class="flex items-center mb-6">
+                            <div class="text-yellow-400 flex space-x-1" aria-label="5 stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <span class="ml-2 text-gray-600 font-medium">5.0</span>
+                        </div>
+                        <p class="text-gray-600 mb-6 leading-relaxed">
+                            "DIEMO transformed our online presence completely. Their team delivered a stunning website
+                            that not only looks amazing but also drives real business results."
+                        </p>
+                        <div class="flex items-center">
+                            <div
+                                class="w-12 h-12 bg-gradient-to-br from-blue-400 to-purple-500 rounded-full flex items-center justify-center text-white font-bold">
+                                S
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="font-semibold text-gray-900">Sarah Johnson</h4>
+                                <p class="text-gray-500 text-sm">CEO, TechStart Inc.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow">
+                        <div class="flex items-center mb-6">
+                            <div class="text-yellow-400 flex space-x-1" aria-label="5 stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <span class="ml-2 text-gray-600 font-medium">5.0</span>
+                        </div>
+                        <p class="text-gray-600 mb-6 leading-relaxed">
+                            "The mobile app they developed exceeded our expectations. User engagement increased by 250%
+                            and our customers love the seamless experience."
+                        </p>
+                        <div class="flex items-center">
+                            <div
+                                class="w-12 h-12 bg-gradient-to-br from-green-400 to-blue-500 rounded-full flex items-center justify-center text-white font-bold">
+                                M
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="font-semibold text-gray-900">Michael Chen</h4>
+                                <p class="text-gray-500 text-sm">Founder, RetailMax</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow">
+                        <div class="flex items-center mb-6">
+                            <div class="text-yellow-400 flex space-x-1" aria-label="5 stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <span class="ml-2 text-gray-600 font-medium">5.0</span>
+                        </div>
+                        <p class="text-gray-600 mb-6 leading-relaxed">
+                            "Their SEO expertise helped us rank #1 for our target keywords. Our organic traffic
+                            increased by 400% in just three months."
+                        </p>
+                        <div class="flex items-center">
+                            <div
+                                class="w-12 h-12 bg-gradient-to-br from-red-400 to-pink-500 rounded-full flex items-center justify-center text-white font-bold">
+                                E
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="font-semibold text-gray-900">Emily Rodriguez</h4>
+                                <p class="text-gray-500 text-sm">Marketing Director, GrowthCo</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="py-24 bg-gradient-to-r from-red-500 to-red-600">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <div class="space-y-8">
+                    <h2 class="text-4xl lg:text-5xl font-bold text-white">Ready to Transform Your Business?</h2>
+                    <p class="text-xl text-red-100 max-w-3xl mx-auto leading-relaxed">
+                        Join hundreds of successful businesses that have accelerated their growth with our digital
+                        solutions. Let's discuss your project today.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <button
+                            class="bg-white text-red-500 hover:bg-gray-100 px-8 py-4 rounded-full font-semibold text-lg transition-colors rounded-button whitespace-nowrap">
+                            Start Your Project
+                        </button>
+                        <button
+                            class="bg-transparent border-2 border-white text-white hover:bg-white/10 px-8 py-4 rounded-full font-semibold text-lg transition-colors rounded-button whitespace-nowrap">
+                            Schedule Consultation
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="bg-gray-900 text-white py-16">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="space-y-6">
+                        <div class="flex items-center">
+                            <div class="w-8 h-8 bg-red-500 rounded-full flex items-center justify-center mr-3">
+                                <span class="text-white font-bold text-sm">D</span>
+                            </div>
+                            <span class="text-xl font-bold">DIEMO</span>
+                        </div>
+                        <p class="text-gray-400 leading-relaxed">
+                            Empowering businesses with cutting-edge digital solutions that drive growth and success.
+                        </p>
+                        <div class="flex space-x-4">
+                            <a href="#"
+                                class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-red-500 transition-colors"
+                                aria-label="Facebook">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#"
+                                class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-red-500 transition-colors"
+                                aria-label="Twitter">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="#"
+                                class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-red-500 transition-colors"
+                                aria-label="LinkedIn">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="space-y-6">
+                        <h3 class="text-lg font-semibold">Services</h3>
+                        <ul class="space-y-3 text-gray-400">
+                            <li><a href="#" class="hover:text-white transition-colors">Web Development</a></li>
+                            <li><a href="#" class="hover:text-white transition-colors">Mobile Apps</a></li>
+                            <li><a href="#" class="hover:text-white transition-colors">SEO & Marketing</a></li>
+                            <li><a href="#" class="hover:text-white transition-colors">E-Commerce</a></li>
+                        </ul>
+                    </div>
+                    <div class="space-y-6">
+                        <h3 class="text-lg font-semibold">Company</h3>
+                        <ul class="space-y-3 text-gray-400">
+                            <li><a href="#" class="hover:text-white transition-colors">About Us</a></li>
+                            <li><a href="#" class="hover:text-white transition-colors">Our Team</a></li>
+                            <li><a href="#" class="hover:text-white transition-colors">Careers</a></li>
+                            <li><a href="#" class="hover:text-white transition-colors">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="space-y-6">
+                        <h3 class="text-lg font-semibold">Contact Info</h3>
+                        <div class="space-y-3 text-gray-400">
+                            <div class="flex items-center">
+                                <i class="fas fa-envelope mr-3"></i>
+                                <span>hello@diemo.com</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-phone mr-3"></i>
+                                <span>+1 (555) 123-4567</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-map-marker-alt mr-3"></i>
+                                <span>New York, NY 10001</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
+                    <p>© {{ currentYear }} DIEMO. All rights reserved. Empowering Digital Futures.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        const { createApp } = Vue;
+
+        createApp({
+            data() {
+                return {
+                    currentYear: new Date().getFullYear(),
+                    showMobileMenu: false,
+                };
+            },
+            mounted() {
+                this.initAnimations();
+            },
+            methods: {
+                initAnimations() {
+                    const observerOptions = {
+                        threshold: 0.1,
+                        rootMargin: "0px 0px -50px 0px",
+                    };
+                    const observer = new IntersectionObserver((entries) => {
+                        entries.forEach((entry) => {
+                            if (entry.isIntersecting) {
+                                entry.target.classList.add("animate-fade-in");
+                            }
+                        });
+                    }, observerOptions);
+                    const sections = document.querySelectorAll("section");
+                    sections.forEach((section) => observer.observe(section));
+                },
+                toggleMobileMenu() {
+                    this.showMobileMenu = !this.showMobileMenu;
+                },
+            },
+        }).mount("#app");
+    </script>
+</body>
+
+</html>
